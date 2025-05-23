@@ -38,9 +38,10 @@
             </li>
             <Popup
                 showModel={activeModalId === list.id}
+                audioSrc={list["src"]}
                 onClose={() => (activeModalId = null)}
                 content={list["popup-content"]}
-                class="flex justify-center align-items"
+                class="flex justify-center items-center"
             ></Popup>
         {/each}
     </ul>

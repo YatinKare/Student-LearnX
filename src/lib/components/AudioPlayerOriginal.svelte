@@ -1,6 +1,5 @@
 <script>
     let { src } = $props();
-    import { Progress } from "@skeletonlabs/skeleton-svelte";
 
     let time = $state(0);
     let duration = $state(0);
@@ -30,17 +29,22 @@
             onclick={() => (paused = !paused)}
         >
         </button>
-        <div class="w-full h-full pl-10">
-            <Progress
-                value={50}
-                max={100}
-                on:pointerdown={(e) => {
+        <div class="flex flex-col">
+            <div
+                class="h-2 bg-gray-400 rounded-full"
+                onpointerdown={(e) => {
                     const div = e.currentTarget;
 
                     function seek(e) {
+                        const { left, width } = div.getBoundingClientRect();
+
+                        let p = (e.clientX - left) / width;
+                        if (p < 0) p = 0;
+                        if (p > 1) p = 1;
+
                         // TODO update the time
                         time = p * duration;
-                        progress = time / duration;
+                        progress = 100 * (time / duration);
                     }
 
                     seek(e);
@@ -56,10 +60,11 @@
                             once: true,
                         },
                     );
-                }}>50%</Progress
+                }}
             >
-        </div>
-        <div class="flex flex-col">
+                <div style="--progress: {time / duration}"></div>
+                ------------------------------------------
+            </div>
             <div class="flex flex-row">
                 <div class="grow text-left">{format(time)}</div>
                 <div class="grow text-right">03</div>
@@ -118,60 +123,12 @@
             </div>
         </div>
     </div>
-
-    <style>
-        #player {
-            display: grid;
-            grid-template-columns: 2.5em 1fr;
-            align-items: center;
-            gap: 1em;
-            padding: 0.5em 1em 0.5em 0.5em;
-            border-radius: 2em;
-            background: var(--bg-1);
-            transition: filter 0.2s;
-            color: var(--fg-3);
-            user-select: none;
-        }
-
-        #player:not(.paused) {
-            color: var(--fg-1);
-            filter: drop-shadow(0.5em 0.5em 1em rgba(0, 0, 0, 0.1));
-        }
-
-        [aria-label="pause"] {
-            background-image: url(/pause.svg);
-        }
-
-        [aria-label="play"] {
-            background-image: url(/play.svg);
-        }
-
-        #info {
-            overflow: hidden;
-        }
-
-        #time {
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-        }
-
-        #time span {
-            font-size: 0.7em;
-        }
-
-        #slider {
-            flex: 1;
-            height: 0.5em;
-            background: var(--bg-2);
-            border-radius: 0.5em;
-            overflow: hidden;
-        }
-
-        #progress {
-            width: calc(100 * var(--progress));
-            height: 100%;
-            background: var(--bg-3);
-        }
-    </style>
 </div>
+
+<style>
+    #progress {
+        width: calc(100 * var(--progress));
+        height: 100%;
+        background-color: blue;
+    }
+</style>
