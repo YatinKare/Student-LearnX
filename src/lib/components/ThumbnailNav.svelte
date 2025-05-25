@@ -22,11 +22,11 @@
 </script>
 
 <div
-    class="bg-[#DBD1D1] filter drop-shadow-lg p-2 md:p-3 flex items-center justify-between shadow-md h-24 md:h-28 shrink-0"
+    class="bg-base-300 filter drop-shadow-lg p-2 md:p-3 flex items-center justify-between shadow-md h-24 md:h-28 shrink-0 rounded-sm"
 >
     <button
         onclick={() => scrollThumbnails(-1)}
-        class="p-2 text-black hover:bg-[#736EAE] rounded-full"
+        class="p-2 text-black hover:bg-primary rounded-full"
         aria-label="Scroll left"
     >
         <svg
@@ -71,7 +71,7 @@
 
     <button
         onclick={() => scrollThumbnails(1)}
-        class="p-2 text-black hover:bg-[#736EAE] rounded-full"
+        class="p-2 text-black hover:bg-primary rounded-full"
         aria-label="Scroll right"
     >
         <svg

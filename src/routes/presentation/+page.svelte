@@ -24,7 +24,9 @@
     <h1 class="text-2xl font-semibold text-gray-700">Example Title</h1>
     <ul class="text-gray-600 mt-2 list-disc ml-[2em]">
         {#each data as list}
-            <li>
+            <li
+                class="transition duration-150 hover:bg-primary w-fit rounded-sm p-1.5"
+            >
                 <div
                     role="button"
                     tabindex="0"

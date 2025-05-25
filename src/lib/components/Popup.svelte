@@ -17,7 +17,9 @@
         }}
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-0 border-none backdrop:backdrop-blur-sm"
     >
-        <div class="bg-white p-6 rounded shadow-lg max-w-[60%]">
+        <div
+            class="bg-primary p-6 rounded shadow-lg max-w-[60%] text-primary-content"
+        >
             <h1 class="decoration-black text-xl underline underline-offset-4">
                 Transcript
             </h1>
@@ -28,7 +30,8 @@
                 Audio
             </h1>
             <div class="flex flex-col justify-center align-items">
-                <audio src={audioSrc} controls class="rounded-sm"></audio>
+                <audio src={audioSrc} controls autoplay class="rounded-sm"
+                ></audio>
             </div>
         </div>
     </div>

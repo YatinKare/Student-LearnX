@@ -14,19 +14,22 @@
     // We'll manage this more directly in the +page.svelte for now.
 </script>
 
-<div class="min-h-screen flex items-center justify-center bg-[#736EAE]">
-    <div
-        class="flex h-screen w-full h-[90vh] overflow-hidden bg-[#DBD1D1] p-8 font-sans border-[15px] border-[#736EAE] rounded-sm"
-    >
-        <Sidebar />
+<div data-theme="cupcake">
+    <div class="min-h-screen flex items-center justify-center bg-primary">
+        <div
+            class="flex h-screen w-full h-[90vh] overflow-hidden bg-base-100 p-8 font-sans border-[15px] border-primary rounded-sm"
+        >
+            <Sidebar />
+            <divider class="divider divider-horizontal"></divider>
 
-        <main class="flex-1 flex flex-col overflow-hidden">
-            <div class="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">
-                <slot />
-            </div>
+            <main class="flex-1 flex flex-col overflow-hidden">
+                <div class="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">
+                    <slot />
+                </div>
 
-            <ThumbnailNav slides={slidesForNav} />
-        </main>
+                <ThumbnailNav slides={slidesForNav} />
+            </main>
+        </div>
     </div>
 </div>
 <!-->
