@@ -40,7 +40,7 @@
     };
 </script>
 
-<div class="flex flex-col h-[80vh] w-full overflow-hidden bg-base-100 gap-3">
+<div class="flex flex-col h-full w-full overflow-hidden bg-base-100 gap-3">
     <div class="flex-1 w-full bg-white rounded-lg shadow-md p-6">
         <h1 class="text-2xl font-semibold text-gray-700">{title}</h1>
         <ul class="text-gray-600 mt-2 list-disc ml-[2em]">

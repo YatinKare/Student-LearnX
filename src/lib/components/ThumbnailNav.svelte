@@ -60,7 +60,7 @@
         {#each slidesSrc as slide}
             <button
                 onclick={() => updateSlide(slide.slideNumber)}
-                class="flex-shrink-0 rounded border-2 h-[calc(100%-1rem)] aspect-[4/3]
+                class="flex-shrink-0 rounded border-4 h-[100%] aspect-[4/3]
 				       {currentSlide === slide.slideNumber
                     ? 'border-primary'
                     : 'border-transparent hover:border-neutral'}

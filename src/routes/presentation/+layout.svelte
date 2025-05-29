@@ -7,7 +7,7 @@
 <div data-theme="cupcake">
     <div class="min-h-screen flex items-center justify-center bg-primary">
         <div
-            class="flex h-screen w-full h-[90vh] overflow-hidden bg-base-100 p-8 font-sans border-[15px] border-primary rounded-sm"
+            class="flex h-screen w-full overflow-hidden bg-base-100 p-8 font-sans border-[15px] border-primary rounded-sm"
         >
             <Sidebar />
             <divider class="divider divider-horizontal"></divider>
