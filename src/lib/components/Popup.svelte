@@ -29,10 +29,16 @@
             >
                 Audio
             </h1>
-            <div class="flex flex-col justify-center align-items">
-                <audio src={audioSrc} controls autoplay class="rounded-sm"
-                ></audio>
-            </div>
+            {#if audioSrc !== ""}
+                <div class="flex flex-col justify-center align-items">
+                    <audio src={audioSrc} controls autoplay class="rounded-sm"
+                    ></audio>
+                </div>
+            {:else}
+                <div class="flex flex-col justify-center align-items">
+                    No audio was provided.
+                </div>
+            {/if}
         </div>
     </div>
 {/if}

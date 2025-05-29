@@ -1,8 +1,7 @@
 <script>
     // Placeholder navigation items, as discussed
-    const navItems = [
-        { href: "/presentation", label: "New Presentation" }, // Assuming /presentation is the main view
-    ];
+    import { mockPresentation } from "$lib/mockData";
+    const navItems = [{ href: "/presentation", label: mockPresentation.title }];
 </script>
 
 <aside
@@ -11,9 +10,7 @@
     <div class="drawer-content">
         <div>
             <div class="mb-10 pt-3 pb-3 text-center">
-                <h1 class="text-xl md:text-2xl font-semibold">
-                    Presentation Tool
-                </h1>
+                <h1 class="text-xl md:text-2xl font-semibold">LearnX</h1>
             </div>
 
             <nav class="space-y-2">
