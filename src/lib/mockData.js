@@ -5,16 +5,12 @@ export const mockPresentation = {
         {
             id: 'slide1',
             slideNumber: 0,
-            title: 'EFFECTIVE DELIVERY TECHNIQUES',
+            title: 'Basic PowerPoint Interaction 1 (without image)',
             bulletPoints: [
-                { id: 'bp1-1', text: 'bulet point 1', transcription: 'This is a powerful tool in public speaking. It involves varying pitch, tone, and volume to convey emotion, emphasize points, and maintain interest.' }, // Made this one longer as per design.
-                { id: 'bp1-2', text: 'Pitch variation', transcription: 'bullet point 2' },
-                { id: 'bp1-3', text: 'Tone inflection', transcription: 'bullet point 3' },
-                { id: 'bp1-4', text: 'Volume control', transcription: 'bullet point 4' } // Added a fourth to better match screenshot
+                { id: 'bp1-1', text: 'This is an example bullet point', transcription: 'This is an example transcription' }, // Made this one longer as per design.
+                { id: 'bp1-2', text: 'Longer text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', transcription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
             ],
-            // Placeholder for where a background image or more complex content might go
-            // For now, we'll render title and bulletPoints directly.
-            contentImageUrl: 'https://via.placeholder.com/800x600/f0f0f0/333333?text=Slide+1+Background'
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.23 PM.png'
         },
         {
             id: 'slide2',
@@ -25,7 +21,7 @@ export const mockPresentation = {
                 { id: 'bp2-2', text: 'Identify their needs and expectations.', transcription: 'bullet point 2' },
                 { id: 'bp2-3', text: 'Tailor your message accordingly.', transcription: 'bullet point 3' }
             ],
-            contentImageUrl: 'https://via.placeholder.com/800x600/e0e0e0/333333?text=Slide+2+Background'
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.34 PM.png'
         },
         {
             id: 'slide3',
@@ -36,7 +32,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            contentImageUrl: 'https://via.placeholder.com/800x600/d0d0d0/333333?text=Slide+3+Background'
-        }
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
     ]
 };

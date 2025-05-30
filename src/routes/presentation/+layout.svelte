@@ -20,22 +20,3 @@
         </div>
     </div>
 </div>
-<!-->
-<div class="min-h-screen bg-purple-900 p-0">
-    <div
-        class="border-[5vw] border-purple-900 bg-[#DBD1D1] min-h-screen w-full font-sans"
-    >
-        <div class="flex h-full">
-            <Sidebar />
-
-            <main class="flex-1 flex flex-col overflow-hidden">
-                <div class="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">
-                    <slot />
-                </div>
-
-                <ThumbnailNav slides={slidesForNav} />
-            </main>
-        </div>
-    </div>
-</div>
-</-->

@@ -1,35 +1,11 @@
 <script>
-    import { slide } from "svelte/transition";
-
     let { slidesSrc, currentSlide, updateSlide, increaseSlide, decreaseSlide } =
         $props();
-
-    function selectSlide(slideId) {
-        if (onNavigate) {
-            onNavigate({ slideId }); // Call the callback prop
-        } else {
-            // Optional: Warn if the callback wasn't provided, though typically it should be.
-            console.warn(
-                "ThumbnailNav: onNavigate callback was not provided but selectSlide was called.",
-            );
-        }
-    }
-
-    function scrollThumbnails(direction) {
-        const container = document.getElementById("thumbnail-container");
-        if (container) {
-            const scrollAmount = direction * (container.offsetWidth * 0.75);
-            container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-    }
 </script>
 
 <div
     class="bg-base-300 filter drop-shadow-lg p-2 md:p-3 flex items-center shadow-md h-24 md:h-28 shrink-0 rounded-sm"
 >
-    <!--
-    <button onclick={() => updateSlide(1)}>updateSlide</button>
--->
     {#if slidesSrc.length > 5}
         <button
             onclick={() => decreaseSlide()}
@@ -65,14 +41,12 @@
                     ? 'border-primary'
                     : 'border-transparent hover:border-neutral'}
 				       transition-all duration-150 ease-in-out overflow-hidden bg-gray-300"
-                title="Go to slide {slide.contentImageUrl.match(
-                    /S(\d+)/,
-                )?.[1] || ''}"
+                title="Go to slide: {slide.SlideNumber}"
             >
                 <img
-                    src={slide.contentImageUrl}
+                    src={slide.ThumbnailSrc}
                     alt="Slide Thumbnail {slide.slideNumber + 1}"
-                    class="h-full w-full object-cover"
+                    class="h-fit w-fit object-cover"
                 />
             </button>
         {/each}

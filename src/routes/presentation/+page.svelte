@@ -1,21 +1,6 @@
 <script>
-    // This page will manage the currently displayed slide and the pop-up logic.
-    // We'll add $state, $derived, etc., here as needed in the next steps.
-    // For example:
-    // import { mockPresentation, mockTranscriptions } from '$lib/mockData.js';
-    // import { page } from '$app/stores'; // To get layout's activeSlideId or manage its own
-    //
-    // let currentSlideData = $state(mockPresentation.slides[0]);
-    // let showPopup = $state(false);
-    // let popupContent = $state('');
-    //
-    // Will need to sync with activeSlideId from the layout, perhaps via a store or by
-    // making activeSlideId in the layout a prop passed down through the page.
-    // For now, this page is just a placeholder for the main content area.
-    //
     import Popup from "$lib/components/Popup.svelte";
     import ThumbnailNav from "$lib/components/ThumbnailNav.svelte";
-    let showModel = $state(false);
     let { data } = $props();
     let currentSlide = $state(0);
 
@@ -23,7 +8,7 @@
     let title = $derived(data.slides[currentSlide].title);
     let slidesSrc = data.slides.map((slides) => ({
         slideNumber: slides.slideNumber,
-        contentImageUrl: slides.contentImageUrl,
+        ThumbnailSrc: "/src/lib/images/" + encodeURI(slides.ThumbnailSrc),
     }));
 
     const updateSlide = (slideNumber) => {
