@@ -7,24 +7,23 @@
     // the subarray that has the visable slides
     let currentSlidesRange = $derived(slidesSrc.slice(0, visableCount));
 
+    $inspect(currentSlide, "Current Slide")
+    $inspect(currentSlidesRange, "Current Slide Range")
+
     // BOTH FUNCS: Check if the next slide is out of view and
     // updates the visbable slides.
     function overflowRight() {
-        if (currentSlide % (visableCount + 1) === 0) {
-            currentSlidesRange = slidesSrc.slice(
-                currentSlide - 1,
-                currentSlide + visableCount - 1,
-            );
-        }
+        currentSlidesRange = slidesSrc.slice(
+            currentSlide - 1,
+            currentSlide + visableCount - 1,
+        );
     }
 
     function overflowLeft() {
-        if (currentSlide % visableCount === 0) {
-            currentSlidesRange = slidesSrc.slice(
-                currentSlide - visableCount,
-                currentSlide,
-            );
-        }
+        currentSlidesRange = slidesSrc.slice(
+            currentSlide - visableCount,
+            currentSlide,
+        );
     }
 </script>
 
@@ -34,7 +33,6 @@
     {#if slidesSrc.length > visableCount}
         <button
             onclick={() => {
-                decreaseSlide();
                 overflowLeft();
             }}
             class="p-2 text-black hover:bg-primary rounded-full"
@@ -83,7 +81,6 @@
     {#if slidesSrc.length > visableCount}
         <button
             onclick={() => {
-                increaseSlide();
                 overflowRight();
             }}
             class="p-2 text-black hover:bg-primary rounded-full"
