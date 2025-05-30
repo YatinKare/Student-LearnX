@@ -1,10 +1,11 @@
 export const mockPresentation = {
     id: 'pres1',
     title: 'Effective Delivery Techniques',
+    totalSlides: 8,
     slides: [
         {
             id: 'slide1',
-            slideNumber: 0,
+            slideNumber: 1,
             title: 'Basic PowerPoint Interaction 1 (without image)',
             bulletPoints: [
                 { id: 'bp1-1', text: 'This is an example bullet point', transcription: 'This is an example transcription' }, // Made this one longer as per design.
@@ -14,7 +15,7 @@ export const mockPresentation = {
         },
         {
             id: 'slide2',
-            slideNumber: 1,
+            slideNumber: 2,
             title: 'Understanding Your Audience',
             bulletPoints: [
                 { id: 'bp2-1', text: 'Analyze demographics and psychographics.', transcription: 'bullet point 1' },
@@ -25,7 +26,62 @@ export const mockPresentation = {
         },
         {
             id: 'slide3',
-            slideNumber: 2,
+            slideNumber: 3,
+            title: 'Visual Aids Best Practices',
+            bulletPoints: [
+                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },
+                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
+                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
+            ],
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
+        {
+            id: 'slide4',
+            slideNumber: 4,
+            title: 'Visual Aids Best Practices',
+            bulletPoints: [
+                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },
+                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
+                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
+            ],
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
+        {
+            id: 'slide5',
+            slideNumber: 5,
+            title: 'Visual Aids Best Practices',
+            bulletPoints: [
+                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },
+                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
+                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
+            ],
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
+        {
+            id: 'slide6',
+            slideNumber: 6,
+            title: 'Visual Aids Best Practices',
+            bulletPoints: [
+                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },
+                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
+                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
+            ],
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
+        {
+            id: 'slide7',
+            slideNumber: 7,
+            title: 'Visual Aids Best Practices',
+            bulletPoints: [
+                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },
+                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
+                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
+            ],
+            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+        },
+        {
+            id: 'slide8',
+            slideNumber: 8,
             title: 'Visual Aids Best Practices',
             bulletPoints: [
                 { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1' },

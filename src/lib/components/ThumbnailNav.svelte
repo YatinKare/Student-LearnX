@@ -1,14 +1,42 @@
 <script>
     let { slidesSrc, currentSlide, updateSlide, increaseSlide, decreaseSlide } =
         $props();
+
+    // How many visable slides there should be.
+    const visableCount = 5;
+    // the subarray that has the visable slides
+    let currentSlidesRange = $derived(slidesSrc.slice(0, visableCount));
+
+    // BOTH FUNCS: Check if the next slide is out of view and
+    // updates the visbable slides.
+    function overflowRight() {
+        if (currentSlide % (visableCount + 1) === 0) {
+            currentSlidesRange = slidesSrc.slice(
+                currentSlide - 1,
+                currentSlide + visableCount - 1,
+            );
+        }
+    }
+
+    function overflowLeft() {
+        if (currentSlide % visableCount === 0) {
+            currentSlidesRange = slidesSrc.slice(
+                currentSlide - visableCount,
+                currentSlide,
+            );
+        }
+    }
 </script>
 
 <div
-    class="bg-base-300 filter drop-shadow-lg p-2 md:p-3 flex items-center shadow-md h-24 md:h-28 shrink-0 rounded-sm"
+    class="bg-base-300 filter drop-shadow-lg p-2 md:p-3 flex flex-row items-center shadow-md h-24 md:h-28 shrink-0 rounded-sm"
 >
-    {#if slidesSrc.length > 5}
+    {#if slidesSrc.length > visableCount}
         <button
-            onclick={() => decreaseSlide()}
+            onclick={() => {
+                decreaseSlide();
+                overflowLeft();
+            }}
             class="p-2 text-black hover:bg-primary rounded-full"
             aria-label="Scroll left"
         >
@@ -31,9 +59,9 @@
 
     <div
         id="thumbnail-container"
-        class="flex-1 flex space-x-2 px-2 mx-1 md:mx-2 scrollbar-hide h-full items-center justify-center"
+        class="flex-1 flex flex-wrap overflow-hidden space-x-2 px-2 mx-1 md:mx-2 scrollbar-hide h-full items-center justify-center"
     >
-        {#each slidesSrc as slide}
+        {#each currentSlidesRange as slide}
             <button
                 onclick={() => updateSlide(slide.slideNumber)}
                 class="flex-shrink-0 rounded border-4 h-[100%] aspect-[4/3]
@@ -52,9 +80,12 @@
         {/each}
     </div>
 
-    {#if slidesSrc.length > 5}
+    {#if slidesSrc.length > visableCount}
         <button
-            onclick={() => increaseSlide()}
+            onclick={() => {
+                increaseSlide();
+                overflowRight();
+            }}
             class="p-2 text-black hover:bg-primary rounded-full"
             aria-label="Scroll right"
         >
