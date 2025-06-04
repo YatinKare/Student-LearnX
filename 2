@@ -13,13 +13,18 @@
     let thumbnail_width = $state();
 
     let visableThumbnails = $derived(
-        Math.min(5, Math.floor(total_width / (thumbnail_width + 20.423))),
+        Math.floor(total_width / (thumbnail_width + 20.423)),
     );
+
+    $inspect(visableThumbnails);
 
     // How many visable slides there should be.
     let visableCount = $state(5);
     // the subarray that has the visable slides
     let currentSlidesRange = $derived(slidesSrc.slice(0, visableCount));
+
+    $inspect(currentSlide, "Current Slide");
+    $inspect(currentSlidesRange, "Current Slide Range");
 
     $effect(() => {
         currentSlidesRange = slidesSrc.slice(0, visableThumbnails);
@@ -29,27 +34,25 @@
     // BOTH FUNCS: Check if the next slide is out of view and
     // updates the visbable slides.
     function overflowRight() {
-        const lastIndex = currentSlidesRange[currentSlidesRange.length - 1];
-        if (lastIndex.slideNumber + 1 < totalSlides) {
+        if (currentSlide + 6 > currentSlidesRange.length - 1) {
+            const lastIndex = currentSlidesRange[currentSlidesRange.length - 1];
             currentSlide = lastIndex.slideNumber + 1;
             currentSlidesRange = slidesSrc.slice(
                 lastIndex.slideNumber,
-                lastIndex.slideNumber + visableThumbnails,
+                lastIndex.slideNumber + 6,
             );
             updateSlide(currentSlide);
         }
     }
 
     function overflowLeft() {
-        if (currentSlidesRange[0].slideNumber - visableThumbnails > 0) {
-            currentSlide =
-                currentSlidesRange[0].slideNumber - visableThumbnails;
-            currentSlidesRange = slidesSrc.slice(
-                currentSlidesRange[0].slideNumber - visableThumbnails - 1,
-                currentSlidesRange[0].slideNumber - 1,
-            );
-            updateSlide(currentSlide);
-        }
+        console.log(currentSlidesRange[0].slideNumber - 6 <= 0);
+        currentSlide = currentSlidesRange[0].slideNumber - 5;
+        currentSlidesRange = slidesSrc.slice(
+            currentSlidesRange[0].slideNumber - 6,
+            currentSlidesRange[0].slideNumber - 1,
+        );
+        updateSlide(currentSlide);
     }
 </script>
 

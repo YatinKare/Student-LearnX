@@ -11,7 +11,7 @@ export const mockPresentation = {
                 { id: 'bp1-1', text: 'This is an example bullet point', transcription: 'This is an example transcription' }, // Made this one longer as per design.
                 { id: 'bp1-2', text: 'Longer text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', transcription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.23 PM.png'
+            ThumbnailSrc: 'Slide1.png'
         },
         {
             id: 'slide2',
@@ -22,7 +22,7 @@ export const mockPresentation = {
                 { id: 'bp2-2', text: 'Identify their needs and expectations.', transcription: 'bullet point 2' },
                 { id: 'bp2-3', text: 'Tailor your message accordingly.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.34 PM.png'
+            ThumbnailSrc: 'Slide2.png'
         },
         {
             id: 'slide3',
@@ -33,7 +33,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide3.png'
         },
         {
             id: 'slide4',
@@ -44,7 +44,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide4.png'
         },
         {
             id: 'slide5',
@@ -55,7 +55,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide5.png'
         },
         {
             id: 'slide6',
@@ -66,7 +66,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide6.png'
         },
         {
             id: 'slide7',
@@ -77,7 +77,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide7.png'
         },
         {
             id: 'slide8',
@@ -88,7 +88,7 @@ export const mockPresentation = {
                 { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2' },
                 { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3' }
             ],
-            ThumbnailSrc: 'Screenshot 2025-05-29 at 12.48.45 PM.png'
+            ThumbnailSrc: 'Slide8.png'
         },
     ]
 };

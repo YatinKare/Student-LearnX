@@ -1,14 +1,17 @@
 <script>
     import Popup from "$lib/components/Popup.svelte";
     import ThumbnailNav from "$lib/components/ThumbnailNav.svelte";
-    let { data } = $props();
+    let { data, params } = $props();
+
     let currentSlide = $state(1);
+    let totalSlides = $derived(data.totalSlides);
 
     let activeModalId = $state(null);
     let title = $derived(data.slides[currentSlide - 1].title);
     let slidesSrc = data.slides.map((slides) => ({
         slideNumber: slides.slideNumber,
-        ThumbnailSrc: "/src/lib/images/" + encodeURI(slides.ThumbnailSrc),
+        ThumbnailSrc:
+            "/src/lib/images/thumbnails/" + encodeURI(slides.ThumbnailSrc),
     }));
 
     function updateSlide(slideNumber) {
@@ -65,6 +68,7 @@
         {slidesSrc}
         {decreaseSlide}
         {increaseSlide}
+        {totalSlides}
     />
 </div>
 
