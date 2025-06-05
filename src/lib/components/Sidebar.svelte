@@ -5,7 +5,7 @@
     const navItems = [
         {
             id: mockPresentation.id,
-            href: `/presentation/p/${mockPresentation.id}`,
+            href: `/p/${mockPresentation.id}`,
             label: mockPresentation.title,
         },
     ];
