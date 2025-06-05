@@ -1,7 +1,14 @@
 <script>
     // Placeholder navigation items, as discussed
     import { mockPresentation } from "$lib/mockData";
-    const navItems = [{ href: "/presentation", label: mockPresentation.title }];
+    import { page } from "$app/state";
+    const navItems = [
+        {
+            id: mockPresentation.id,
+            href: `/presentation/p/${mockPresentation.id}`,
+            label: mockPresentation.title,
+        },
+    ];
     const showModal = () => {
         document.getElementById("my_modal_1").showModal();
     };
@@ -10,7 +17,7 @@
 <aside
     class="drawer w-60 md:w-64 bg-base-300 p-4 md:p-5 flex flex-col justify-between rounded-sm"
 >
-    <div class="drawer-content">
+    <div class="drawer-content flex flex-col justify-between h-full">
         <div>
             <div class="mb-10 pt-3 pb-3 text-center">
                 <h1 class="text-xl md:text-2xl font-semibold">LearnX</h1>
@@ -35,12 +42,21 @@
             </dialog>
             <nav class="space-y-2">
                 {#each navItems as item}
-                    <a
-                        href={item.href}
-                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral hover:text-neutral-content text-sm md:text-base"
-                    >
-                        {item.label}
-                    </a>
+                    {#if page.url.pathname === `/presentation/p/${mockPresentation.id}`}
+                        <a
+                            href={item.href}
+                            class="bg-base-100 block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral hover:text-neutral-content text-sm md:text-base"
+                        >
+                            {item.label}
+                        </a>
+                    {:else}
+                        <a
+                            href={item.href}
+                            class="block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral hover:text-neutral-content text-sm md:text-base"
+                        >
+                            {item.label}
+                        </a>
+                    {/if}
                 {/each}
             </nav>
         </div>

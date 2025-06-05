@@ -99,7 +99,7 @@
             >
                 <img
                     src={slide.ThumbnailSrc}
-                    alt="Slide Thumbnail {slide.slideNumber + 1}"
+                    alt="Slide Thumbnail {(slide.slideNumber + 1).toString()}"
                     class="h-fit w-fit object-cover"
                 />
             </button>
