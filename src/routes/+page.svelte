@@ -181,8 +181,8 @@
                 >
                     fully functional demo
                 </span>
--->
             </div>
+-->
         </div>
 
         <div
