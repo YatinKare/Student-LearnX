@@ -75,10 +75,7 @@
                 class="mt-6 md:mt-4 flex flex-row flex-wrap gap-4 place-content-center"
             >
                 <!--TODO: link get started/signup -->
-                <a
-                    href="https://github.com/CriticalMoments/CMSaasStarter"
-                    aria-label="Get Started"
-                >
+                <a href="/login" aria-label="Get Started">
                     <button class="btn btn-primary px-10">Get Started</button>
                 </a>
             </div>

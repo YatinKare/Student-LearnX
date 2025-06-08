@@ -1,7 +1,6 @@
 <script lang="ts">
     import { Auth } from "@supabase/auth-ui-svelte";
     import { sharedAppearance } from "../login_config";
-    import { goto } from "$app/navigation";
     import { onMount } from "svelte";
     import { page } from "$app/state";
 

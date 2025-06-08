@@ -3,7 +3,7 @@
 </svelte:head>
 
 <div>
-    <h1 class="text-xl font-bold">Get Started</h1>
+    <h1 class="text-xl font-bold">Get Started Today!</h1>
     <a href="/login/sign_up"
         ><button class="btn btn-primary mt-3 btn-wide">Sign Up</button></a
     >
