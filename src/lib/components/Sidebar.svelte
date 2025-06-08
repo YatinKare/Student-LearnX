@@ -20,7 +20,9 @@
     <div class="drawer-content flex flex-col justify-between h-full">
         <div>
             <div class="mb-10 pt-3 pb-3 text-center">
-                <h1 class="text-xl md:text-2xl font-semibold">LearnX</h1>
+                <h1 class="text-xl md:text-2xl font-semibold">
+                    <a href="/">LearnX</a>
+                </h1>
             </div>
 
             <div class="">

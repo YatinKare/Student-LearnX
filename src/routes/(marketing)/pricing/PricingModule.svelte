@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { PRICING_PLANS } from "./page.js";
+    import { PRICING_PLANS } from "./pricing_plans.js";
 
     let {
         highlightedPlanId = "",

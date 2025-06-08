@@ -10,7 +10,7 @@
         <ul class="menu menu-horizontal px-1 hidden sm:flex font-bold text-lg">
             <li class="md:mx-4"></li>
             <li class="md:mx-2"><a href="/pricing">Pricing</a></li>
-            <li class="md:mx-2"><a href="/account">Account</a></li>
+            <li class="md:mx-2"><a href="/login">Account</a></li>
             <li class="md:mx-0">
                 <a href="/search" aria-label="Search">
                     <svg
@@ -71,7 +71,6 @@
         <nav>
             <span class="footer-title opacity-80">Explore</span>
             <a class="link link-hover mb-1" href="/">Overview</a>
-            <a class="link link-hover mb-1" href="/about">About Us</a>
             <a class="link link-hover my-1" href="/pricing">Pricing</a>
             <a class="link link-hover my-1" href="/contact_us">Contact Us</a>
         </nav>
@@ -90,6 +89,3 @@
         </aside>
     </footer>
 </div>
-<!--
-{@render children()}
--->

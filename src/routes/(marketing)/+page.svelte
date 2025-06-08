@@ -65,11 +65,11 @@
                 <span>way to study.</span>
             </div>
             <div class="mt-6 md:mt-10 text-sm md:text-lg">
-                Built by Yatin: <a
+                Built by: <a
                     href="https://www.linkedin.com/in/yatin-kare/"
                     class="link font-bold"
-                    target="_blank">Linkedin</a
-                >
+                    target="_blank">Yatin</a
+                >.
             </div>
             <div
                 class="mt-6 md:mt-4 flex flex-row flex-wrap gap-4 place-content-center"
@@ -79,12 +79,7 @@
                     href="https://github.com/CriticalMoments/CMSaasStarter"
                     aria-label="Get Started"
                 >
-                    <button class="btn btn-primary px-6">Get Started</button>
-                </a>
-                <a href="/about" aria-label="Learn More">
-                    <button class="btn btn-outline btn-primary px-6"
-                        >Learn More</button
-                    >
+                    <button class="btn btn-primary px-10">Get Started</button>
                 </a>
             </div>
         </div>
