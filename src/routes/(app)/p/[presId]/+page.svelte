@@ -1,6 +1,9 @@
 <script>
     import Popup from "$lib/components/Popup.svelte";
     import ThumbnailNav from "$lib/components/ThumbnailNav.svelte";
+    import Type1slide from "$lib/components/slides/type1slide.svelte";
+    import Type2slide from "$lib/components/slides/type2slide.svelte";
+    import TypeErrorSlide from "$lib/components/slides/typeErrorSlide.svelte";
     let { data, params } = $props();
 
     let currentSlide = $state(1);
@@ -8,6 +11,7 @@
 
     let activeModalId = $state(null);
     let title = $derived(data.slides[currentSlide - 1].title);
+    let currentSlideType = $derived(data.slides[currentSlide - 1].slideType);
     let slidesSrc = data.slides.map((slides) => ({
         slideNumber: slides.slideNumber,
         ThumbnailSrc:
@@ -34,32 +38,23 @@
 
 <div class="flex flex-col h-full w-full overflow-hidden bg-base-100 gap-3">
     <div class="flex-1 w-full bg-white rounded-lg shadow-md p-6">
-        <h1 class="text-2xl font-semibold text-gray-700">{title}</h1>
-        <ul class="text-gray-600 mt-2 list-disc ml-[2em]">
-            {#each data.slides[currentSlide - 1].bulletPoints as list}
-                <li
-                    class="transition duration-150 hover:bg-primary w-fit rounded-sm p-1.5"
-                >
-                    <div
-                        role="button"
-                        tabindex="0"
-                        onclick={() => (activeModalId = list.id)}
-                        onkeydown={() => {}}
-                        onkeyup={() => {}}
-                        class="w-fit"
-                    >
-                        {list.text}
-                    </div>
-                </li>
-                <Popup
-                    showModel={activeModalId === list.id}
-                    audioSrc={Object.hasOwn(list, "src") ? list["src"] : ""}
-                    onClose={() => (activeModalId = null)}
-                    content={list.transcription}
-                    class="flex justify-center items-center"
-                ></Popup>
-            {/each}
-        </ul>
+        <!-- Slide type-->
+        <!-- Slide type-->
+        {#if currentSlideType === 1}
+            <Type1slide
+                {title}
+                currentSlideData={data.slides[currentSlide - 1].bulletPoints}
+                {activeModalId}
+            />
+        {:else if currentSlideType === 2}
+            <Type2slide
+                {title}
+                currentSlideData={data.slides[currentSlide - 1]}
+                {activeModalId}
+            />
+        {:else}
+            <TypeErrorSlide />
+        {/if}
     </div>
 
     <ThumbnailNav
