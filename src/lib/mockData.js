@@ -32,14 +32,18 @@ export const mockPresentation = {
         },
         {
             id: 'slide3',
+            slideType: 3,
             slideNumber: 3,
-            title: 'Visual Aids Best Practices',
-            bulletPoints: [
-                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3', src: '/src/lib/audio/audio.mp3' }
+            title: 'Comparative Analysis (Type 3)',
+            leftColumn: [
+                { id: 'lc3-1', text: 'Left Column: Point 1', transcription: 'Transcription for Left Column, Point 1', src: '/src/lib/audio/audio.mp3' },
+                { id: 'lc3-2', text: 'Left Column: Point 2', transcription: 'Transcription for Left Column, Point 2' }
             ],
-            ThumbnailSrc: 'Slide3.png'
+            rightColumn: [
+                { id: 'rc3-1', text: 'Right Column: Point A', transcription: 'Transcription for Right Column, Point A', src: '/src/lib/audio/audio.mp3' },
+                { id: 'rc3-2', text: 'Right Column: Point B', transcription: 'Transcription for Right Column, Point B' }
+            ],
+            ThumbnailSrc: 'Slide3.png' // Assuming a generic thumbnail name
         },
         {
             id: 'slide4',
