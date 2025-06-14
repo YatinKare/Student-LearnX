@@ -20,12 +20,13 @@ export const mockPresentation = {
             slideNumber: 2,
             title: 'Understanding Your Audience',
             bulletPoints: [
-                { id: 'bp2-1', text: 'Analyze demographics and psychographics.', transcription: 'bullet point 1', src: '/src/lib/audio/audio.mp3' },
+                { id: 'bp2-1', text: 'Longer text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Analyze demographics and psychographics.', transcription: 'bullet point 1', src: '/src/lib/audio/audio.mp3' },
                 { id: 'bp2-2', text: 'Identify their needs and expectations.', transcription: 'bullet point 2', src: '/src/lib/audio/audio.mp3' },
                 { id: 'bp2-3', text: 'Tailor your message accordingly.', transcription: 'bullet point 3', src: '/src/lib/audio/audio.mp3' }
+
             ],
             images: [
-                { id: 'image1', imageSrc: 'Slide2.png', alt: "Slide 2 image", transcription: 'test transcription', src: '/src/lib/audio/audio.mp3' }
+                { id: 'image1', imageSrc: '/src/lib/images/thumbnails/Slide2.png', alt: "Slide 2 image", transcription: 'test transcription', src: '/src/lib/audio/audio.mp3' }
             ],
             ThumbnailSrc: 'Slide2.png'
         },

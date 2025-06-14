@@ -3,7 +3,9 @@
     import ThumbnailNav from "$lib/components/ThumbnailNav.svelte";
     import Type1slide from "$lib/components/slides/type1slide.svelte";
     import Type2slide from "$lib/components/slides/type2slide.svelte";
+    import Type3slide from "$lib/components/slides/type3slide.svelte";
     import TypeErrorSlide from "$lib/components/slides/typeErrorSlide.svelte";
+    import { createRawSnippet } from "svelte";
     let { data, params } = $props();
 
     let currentSlide = $state(1);
@@ -36,25 +38,33 @@
     }
 </script>
 
+{#snippet Slide(type)}
+    {#if type === 1}
+        <Type1slide
+            {title}
+            currentSlideData={data.slides[currentSlide - 1].bulletPoints}
+            {activeModalId}
+        />
+    {:else if type === 2}
+        <Type2slide
+            {title}
+            currentSlideData={data.slides[currentSlide - 1]}
+            {activeModalId}
+        />
+    {:else if type === 3}
+        <Type3slide
+            {title}
+            currentSlideData={data.slides[currentSlide - 1]}
+            {activeModalId}
+        />
+    {:else}
+        <TypeErrorSlide />
+    {/if}
+{/snippet}
+
 <div class="flex flex-col h-full w-full overflow-hidden bg-base-100 gap-3">
     <div class="flex-1 w-full bg-white rounded-lg shadow-md p-6">
-        <!-- Slide type-->
-        <!-- Slide type-->
-        {#if currentSlideType === 1}
-            <Type1slide
-                {title}
-                currentSlideData={data.slides[currentSlide - 1].bulletPoints}
-                {activeModalId}
-            />
-        {:else if currentSlideType === 2}
-            <Type2slide
-                {title}
-                currentSlideData={data.slides[currentSlide - 1]}
-                {activeModalId}
-            />
-        {:else}
-            <TypeErrorSlide />
-        {/if}
+        {@render Slide(currentSlideType)}
     </div>
 
     <ThumbnailNav
