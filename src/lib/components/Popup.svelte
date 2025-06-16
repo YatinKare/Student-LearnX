@@ -1,6 +1,5 @@
 <script>
     let { showModel, content, onClose, audioSrc } = $props();
-    import AudioPlayer from "$lib/components/AudioPlayerSimple.svelte";
     let dialog = $state();
 </script>
 

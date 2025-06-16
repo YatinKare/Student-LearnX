@@ -23,6 +23,6 @@ app.add_middleware(
 @app.get("/presentation/{pres_id}")
 def presentation(pres_id):
     if pres_id == "36b7a0b1-7a63-4632-a95d-a179495f6236":
-        with open('./mockdata.js', 'r') as file:
+        with open('./mockdata.json', 'r') as file:
             return json.load(file)
     else: return {"error": "No presentation found"}
