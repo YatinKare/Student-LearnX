@@ -1,0 +1,9 @@
+[project]
+name = "learnx-server"
+version = "0.1.0"
+description = "Fastapi backend for LearnX"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+]

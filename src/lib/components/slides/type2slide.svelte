@@ -1,8 +1,6 @@
 <script>
     import Popup from "$lib/components/Popup.svelte";
     let { title, currentSlideData, activeModalId } = $props();
-
-    $inspect(currentSlideData);
 </script>
 
 <div class="flex flex-col">

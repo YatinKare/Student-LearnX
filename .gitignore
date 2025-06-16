@@ -24,3 +24,10 @@ vite.config.ts.timestamp-*
 
 # Audio
 *.mp3
+
+# Claude
+CLAUDE.md
+
+# Backend
+./server/__pycache__/
+server/__pycache__/main.cpython-310.pyc

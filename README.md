@@ -20,7 +20,7 @@ This app turns PowerPoint review into a interactive experience that will improve
 Thanks for supporting my early development!
 
 ## Development
-Run `npm start` after cloning. 
+Run `./start.sh` after cloning. 
 >[!note]
 > This is still in prototyping, many of the basic features are still in development. </br>
 > Please be careful altering code.

@@ -4,7 +4,9 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+    "dev": "./start.sh",
+		"dev:frontend": "vite dev",
+    "dev:backend": "cd server && uv run fastapi dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''"
