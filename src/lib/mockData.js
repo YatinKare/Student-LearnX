@@ -48,23 +48,18 @@ export const mockPresentation = {
         {
             id: 'slide4',
             slideNumber: 4,
-            title: 'Visual Aids Best Practices',
-            bulletPoints: [
-                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3', src: '/src/lib/audio/audio.mp3' }
-            ],
+            slideType: 4,
+            title: 'Basic Title + Description',
+            text:
+                { id: 'tx1-1', text: 'Longer text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Analyze demographics and psychographics.', transcription: 'description 1', src: '/src/lib/audio/audio.mp3' },
             ThumbnailSrc: 'Slide4.png'
         },
         {
             id: 'slide5',
             slideNumber: 5,
-            title: 'Visual Aids Best Practices',
-            bulletPoints: [
-                { id: 'bp3-1', text: 'Keep visuals simple and clear.', transcription: 'bullet point 1', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-2', text: 'Use high-quality images and graphics.', transcription: 'bullet point 2', src: '/src/lib/audio/audio.mp3' },
-                { id: 'bp3-3', text: 'Ensure text is readable from a distance.', transcription: 'bullet point 3', src: '/src/lib/audio/audio.mp3' }
-            ],
+            slideType: 5,
+            title: 'Title Slide/Section Header',
+            subtitle: 'Subtitle',
             ThumbnailSrc: 'Slide5.png'
         },
         {

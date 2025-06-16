@@ -1,38 +1,26 @@
-# sv
+# LearnX
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+>[!WARNING]
+> CURRENTLY IN DEVELOPMENT
+> Not even being tested yet.
 
-## Creating a project
+Have you ever wanted a way to study content, but haven't been able to remember what your presentor exactly said? LearnX is a great solution.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Description
 
-```bash
-# create a new project in the current directory
-npx sv create
+This app turns PowerPoint review into a interactive experience that will improve memory recall drastically and allows people to listen / read exactly what the presentor said during specific points during the presentation. 
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Features
+> Here are some of the features that are coming:
 
-## Developing
+1. **Recording and Transcribing presentations for later use.**
+2. **Importing presentations that will be transformed within an interactive environment, allowing people to listen back to specific sections of the lecture.**
+3. **...And many more :)**
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Thanks for supporting my early development!
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Development
+Run `npm start` after cloning. 
+>[!note]
+> This is still in prototyping, many of the basic features are still in development. </br>
+> Please be careful altering code.

@@ -4,6 +4,8 @@
     import Type1slide from "$lib/components/slides/type1slide.svelte";
     import Type2slide from "$lib/components/slides/type2slide.svelte";
     import Type3slide from "$lib/components/slides/type3slide.svelte";
+    import Type4slide from "$lib/components/slides/type4slide.svelte";
+    import Type5slide from "$lib/components/slides/type5slide.svelte";
     import TypeErrorSlide from "$lib/components/slides/typeErrorSlide.svelte";
     import { createRawSnippet } from "svelte";
     let { data, params } = $props();
@@ -57,13 +59,25 @@
             currentSlideData={data.slides[currentSlide - 1]}
             {activeModalId}
         />
+    {:else if type === 4}
+        <Type4slide
+            {title}
+            currentSlideData={data.slides[currentSlide - 1]}
+            {activeModalId}
+        />
+    {:else if type === 5}
+        <Type5slide
+            {title}
+            currentSlideData={data.slides[currentSlide - 1]}
+            {activeModalId}
+        />
     {:else}
         <TypeErrorSlide />
     {/if}
 {/snippet}
 
 <div class="flex flex-col h-full w-full overflow-hidden bg-base-100 gap-3">
-    <div class="flex-1 w-full bg-white rounded-lg shadow-md p-6">
+    <div class="flex flex-1 w-full bg-white rounded-lg shadow-md p-6">
         {@render Slide(currentSlideType)}
     </div>
 

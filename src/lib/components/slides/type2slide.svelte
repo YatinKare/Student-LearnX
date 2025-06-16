@@ -5,34 +5,38 @@
     $inspect(currentSlideData);
 </script>
 
-<div>
+<div class="flex flex-col">
     <h1 class="text-2xl font-semibold text-gray-700">{title}</h1>
-    <div class="flex flex-row gap-2">
-        <ul class="text-gray-600 mt-2 list-disc ml-[2em]">
-            {#each currentSlideData.bulletPoints as list}
-                <li
-                    class="transition duration-150 hover:bg-primary w-fit rounded-sm p-1.5"
-                >
-                    <div
-                        role="button"
-                        tabindex="0"
-                        onclick={() => (activeModalId = list.id)}
-                        onkeydown={() => {}}
-                        onkeyup={() => {}}
-                        class="w-fit"
+    <div class="flex flex-row flex-grow gap-2">
+        <div
+            class="border-2 border-gray-200 rounded-sm transition duration-100 hover:border-gray-400 p-2"
+        >
+            <ul class=" text-gray-600 mt-2 list-disc ml-[2em]">
+                {#each currentSlideData.bulletPoints as list}
+                    <li
+                        class="transition duration-150 hover:bg-primary w-fit rounded-sm p-1.5"
                     >
-                        {list.text}
-                    </div>
-                </li>
-                <Popup
-                    showModel={activeModalId === list.id}
-                    audioSrc={Object.hasOwn(list, "src") ? list["src"] : ""}
-                    onClose={() => (activeModalId = null)}
-                    content={list.transcription}
-                    class="flex justify-center items-center"
-                ></Popup>
-            {/each}
-        </ul>
+                        <div
+                            role="button"
+                            tabindex="0"
+                            onclick={() => (activeModalId = list.id)}
+                            onkeydown={() => {}}
+                            onkeyup={() => {}}
+                            class="w-fit"
+                        >
+                            {list.text}
+                        </div>
+                    </li>
+                    <Popup
+                        showModel={activeModalId === list.id}
+                        audioSrc={Object.hasOwn(list, "src") ? list["src"] : ""}
+                        onClose={() => (activeModalId = null)}
+                        content={list.transcription}
+                        class="flex justify-center items-center"
+                    ></Popup>
+                {/each}
+            </ul>
+        </div>
         {#each currentSlideData.images as image}
             <div
                 role="button"
@@ -40,7 +44,7 @@
                 onclick={() => (activeModalId = image.id)}
                 onkeydown={() => {}}
                 onkeyup={() => {}}
-                class="transition duration-150 hover:brightness-50 w-fit rounded-sm p-0.5"
+                class="h-fit transition duration-150 hover:brightness-50 w-fit rounded-sm p-0.5"
             >
                 <img
                     class="rounded-sm m-2 border-4 border-primary aspect-[auto] overflow-hidden min-w-[350px]"

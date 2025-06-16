@@ -3,9 +3,9 @@
     let { title, currentSlideData, activeModalId } = $props();
 </script>
 
-<div>
+<div class="flex flex-col">
     <h1 class="text-2xl font-semibold text-gray-700">{title}</h1>
-    <div class="flex flex-row">
+    <div class="flex flex-row flex-grow">
         <ul class="text-gray-600 mt-2 list-disc ml-[2em]">
             {#each currentSlideData as list}
                 <li
