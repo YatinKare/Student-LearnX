@@ -7,7 +7,6 @@
     import Type4slide from "$lib/components/slides/type4slide.svelte";
     import Type5slide from "$lib/components/slides/type5slide.svelte";
     import TypeErrorSlide from "$lib/components/slides/typeErrorSlide.svelte";
-    import { createRawSnippet } from "svelte";
     let { data, params } = $props();
 
     let currentSlide = $state(1);
