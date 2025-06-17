@@ -14,8 +14,31 @@
     ];
     const validAudioMimeTypes = ["audio/mpeg", "audio/wav", "audio/aac"];
 
-    function deleteFile(event) {
-        console.log(event);
+    function deleteFile(index) {
+        selectedFiles.splice(index, 1);
+        selectedFiles = [...selectedFiles];
+
+        let powerpointFile = selectedFiles.find((file) =>
+            validPowerpointMimeTypes.includes(file.type),
+        );
+        let audioFile = selectedFiles.find((file) =>
+            validAudioMimeTypes.includes(file.type),
+        );
+
+        if (selectedFiles.length === 0) {
+            fileValidationMessage = "";
+        } else if (!powerpointFile && !audioFile) {
+            fileValidationMessage =
+                "Please upload one PowerPoint file and one audio file.";
+        } else if (!powerpointFile) {
+            fileValidationMessage =
+                "PowerPoint file missing. Please upload one PowerPoint file.";
+        } else if (!audioFile) {
+            fileValidationMessage =
+                "Audio file missing. Please upload one audio file.";
+        } else {
+            fileValidationMessage = "Files ready for upload.";
+        }
     }
 
     function handleFileChange(event) {
@@ -103,12 +126,12 @@
                             <li class="menu-title text-lg font-medium">
                                 Selected Files:
                             </li>
-                            {#each selectedFiles as file}
+                            {#each selectedFiles as file, index}
                                 <li class="flex flex-row">
                                     <button
                                         class="tooltip tooltip-right"
                                         data-tip="delete"
-                                        onclick={deleteFile}
+                                        onclick={() => deleteFile(index)}
                                     >
                                         {file.name} ({Math.round(
                                             file.size / 1024,
