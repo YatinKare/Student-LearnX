@@ -81,12 +81,7 @@
     <div
         class="flex flex-1 w-full bg-white rounded-lg shadow-md p-6 justify-center items-center"
     >
-        <form
-            method="POST"
-            action="?/uploadFiles"
-            use:enhance
-            enctype="multipart/form-data"
-        >
+        <form method="POST" use:enhance enctype="multipart/form-data">
             <fieldset class="fieldset">
                 <legend class="text-2xl font-semibold mb-4 text-center"
                     >Upload Your Files</legend
@@ -115,32 +110,24 @@
                     </p>
                 {/if}
 
-                {#if true || (fileValidationMessage === "Files ready for upload." && selectedFiles.length > 0)}
-                    <div class="mt-4">
-                        <!--
-                        <h3 class="text-lg font-medium mb-2">
-                            Selected Files:
-                        </h3>
-                        -->
-                        <ul class="menu bg-base-200 rounded-box text-sm">
-                            <li class="menu-title text-lg font-medium">
-                                Selected Files:
-                            </li>
-                            {#each selectedFiles as file, index}
-                                <li class="flex flex-row">
-                                    <button
-                                        class="tooltip tooltip-right"
-                                        data-tip="delete"
-                                        onclick={() => deleteFile(index)}
-                                    >
-                                        {file.name} ({Math.round(
-                                            file.size / 1024,
-                                        )} KB)
-                                    </button>
-                                </li>
-                            {/each}
-                        </ul>
-                    </div>
+                <ul class="menu bg-base-200 rounded-box text-sm">
+                    <li class="menu-title text-lg font-medium">
+                        Selected Files:
+                    </li>
+                    {#each selectedFiles as file, index}
+                        <li class="flex flex-row">
+                            <button
+                                class="tooltip tooltip-right"
+                                data-tip="delete"
+                                onclick={() => deleteFile(index)}
+                            >
+                                {file.name} ({Math.round(file.size / 1024)} KB)
+                            </button>
+                        </li>
+                    {/each}
+                </ul>
+
+                {#if fileValidationMessage === "Files ready for upload." && selectedFiles.length > 0}
                     <button type="submit" class="btn btn-primary w-full mt-6"
                         >Upload Files</button
                     >

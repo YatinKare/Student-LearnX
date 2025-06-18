@@ -1,7 +1,7 @@
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
-    uploadFiles: async ({ request }) => {
+    default: async ({ request }) => {
         const formData = await request.formData();
         const files = formData.getAll('uploadedFiles');
 

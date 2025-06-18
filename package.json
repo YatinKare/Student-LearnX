@@ -4,9 +4,9 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-    "dev": "./start.sh",
+		"dev": "./start.sh",
 		"dev:frontend": "vite dev",
-    "dev:backend": "cd server && uv run fastapi dev",
+		"dev:backend": "cd server && uv run fastapi dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''"
@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"@supabase/auth-ui-shared": "^0.1.8",
-		"@supabase/auth-ui-svelte": "^0.2.9"
+		"@supabase/auth-ui-svelte": "^0.2.9",
+		"svelte-file-dropzone": "^2.0.9"
 	}
 }
