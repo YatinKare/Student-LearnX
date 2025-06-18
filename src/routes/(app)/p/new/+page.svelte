@@ -80,29 +80,27 @@
 
 <div class="flex flex-col h-full w-full overflow-hidden bg-base-100 gap-3">
     <div
-        class="flex flex-1 w-full bg-white rounded-lg shadow-md p-6 justify-center items-center"
+        class="flex flex-1 w-full bg-white rounded-lg shadow-md p-6 justify-center items-center gap-4"
     >
-        <form method="POST" use:enhance enctype="multipart/form-data">
+        <form method="POST" use:enhance enctype="multipart/form-data" class="">
             <fieldset class="fieldset">
-                <legend class="text-2xl font-semibold mb-4 text-center"
-                    >Upload Your Files</legend
-                >
                 <Dropzone
                     name="uploadedFiles"
                     multiple
                     accept="application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint,audio/mpeg,audio/wav,audio/aac"
                     on:drop={handleFileDrop}
-                    containerClasses="w-full h-full border-2 border-dashed border-primary rounded-lg flex flex-col items-center justify-center p-6 cursor-pointer"
+                    class="w-full h-full border-2 border-dashed border-primary rounded-lg flex flex-col items-center justify-center p-6 cursor-pointer"
                 >
                     <p class="text-center opacity-70">
-                        Drag & drop or click to select your PowerPoint and audio
-                        files
+                        Drag and drop or click to select your PowerPoint and
+                        audio files
                     </p>
                 </Dropzone>
                 <p class="label-text text-center mt-2 mb-4">
                     Upload one PowerPoint and one Audio file.<br /> Max size 2MB
                     per file.
                 </p>
+
                 {#if fileValidationMessage}
                     <p
                         class="my-2 {fileValidationMessage ===
@@ -114,22 +112,24 @@
                     </p>
                 {/if}
 
-                <ul class="menu bg-base-200 rounded-box text-sm">
-                    <li class="menu-title text-lg font-medium">
-                        Selected Files:
-                    </li>
-                    {#each selectedFiles as file, index}
-                        <li class="flex flex-row">
-                            <button
-                                class="tooltip tooltip-right"
-                                data-tip="delete"
-                                onclick={() => deleteFile(index)}
-                            >
-                                {file.name} ({Math.round(file.size / 1024)} KB)
-                            </button>
+                {#if selectedFiles.length > 0}
+                    <ul class="menu bg-base-200 rounded-box text-sm">
+                        <li class="menu-title text-lg font-medium">
+                            Selected Files:
                         </li>
-                    {/each}
-                </ul>
+                        {#each selectedFiles as file, index}
+                            <li class="flex flex-row">
+                                <button
+                                    class="tooltip tooltip-right"
+                                    data-tip="delete"
+                                    onclick={() => deleteFile(index)}
+                                >
+                                    {file.name} ({Math.round(file.size / 1024)} KB)
+                                </button>
+                            </li>
+                        {/each}
+                    </ul>
+                {/if}
 
                 {#if fileValidationMessage === "Files ready for upload." && selectedFiles.length > 0}
                     <button type="submit" class="btn btn-primary w-full mt-6"
