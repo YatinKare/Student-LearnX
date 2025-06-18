@@ -82,7 +82,19 @@
     <div
         class="flex flex-1 w-full bg-white rounded-lg shadow-md p-6 justify-center items-center gap-4"
     >
-        <form method="POST" use:enhance enctype="multipart/form-data" class="">
+        <form
+            method="POST"
+            use:enhance={({ formData }) => {
+                // ensure all selected files are sent even if the underlying
+                // dropzone input only contains the most recent selection
+                formData.delete('uploadedFiles');
+                for (const file of selectedFiles) {
+                    formData.append('uploadedFiles', file);
+                }
+            }}
+            enctype="multipart/form-data"
+            class=""
+        >
             <fieldset class="fieldset">
                 <Dropzone
                     name="uploadedFiles"
