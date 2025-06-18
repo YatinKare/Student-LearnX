@@ -1,7 +1,8 @@
 <script>
     import { enhance } from "$app/forms";
-    import { page } from "$app/stores";
-    import PricingModule from "../../../(marketing)/pricing/PricingModule.svelte";
+import { page } from "$app/stores";
+import PricingModule from "../../../(marketing)/pricing/PricingModule.svelte";
+import Dropzone from "svelte-file-dropzone";
 
     let { data, params } = $props();
 
@@ -41,28 +42,27 @@
         }
     }
 
-    function handleFileChange(event) {
-        const newFiles = Array.from(event.target.files);
+    function handleFilesSelect(event) {
+        const { acceptedFiles } = event.detail;
         fileValidationMessage = "";
 
-        // Add new files to the existing ones, avoiding duplicates by name
-        for (const newFile of newFiles) {
-            const existingIndex = selectedFiles.findIndex(
-                (f) => f.name === newFile.name,
-            );
+        for (const newFile of acceptedFiles) {
+            const existingIndex = selectedFiles.findIndex((f) => f.name === newFile.name);
             if (existingIndex === -1) {
                 selectedFiles = [...selectedFiles, newFile];
             }
         }
 
         let powerpointFile = selectedFiles.find((file) =>
-            validPowerpointMimeTypes.includes(file.type),
+            validPowerpointMimeTypes.includes(file.type)
         );
         let audioFile = selectedFiles.find((file) =>
-            validAudioMimeTypes.includes(file.type),
+            validAudioMimeTypes.includes(file.type)
         );
 
-        if (!powerpointFile && !audioFile) {
+        if (selectedFiles.length === 0) {
+            fileValidationMessage = "";
+        } else if (!powerpointFile && !audioFile) {
             fileValidationMessage =
                 "Please upload one PowerPoint file and one audio file.";
         } else if (!powerpointFile) {
@@ -91,19 +91,21 @@
                 <legend class="text-2xl font-semibold mb-4 text-center"
                     >Upload Your Files</legend
                 >
-                <input
-                    type="file"
-                    id="input"
-                    class="file-input"
-                    multiple
-                    accept=".pptx, .ppt, .mp3, .wav, .mpeg, .aac"
-                    onchange={handleFileChange}
+                <Dropzone
                     name="uploadedFiles"
-                />
-                <label class="label" for="input">
-                    Upload one PowerPoint and one Audio file.<br /> Max size 2MB
-                    per file.
-                </label>
+                    multiple
+                    accept=".pptx,.ppt,.mp3,.wav,.mpeg,.aac"
+                    on:drop={handleFilesSelect}
+                    disableDefaultStyles={true}
+                    containerClasses="w-full h-40 border-2 border-dashed border-primary rounded-lg flex items-center justify-center bg-base-200"
+                >
+                    <p class="text-center">
+                        Drag &amp; drop your PowerPoint and audio files here, or click to browse.
+                    </p>
+                </Dropzone>
+                <p class="label">
+                    Upload one PowerPoint and one audio file.<br /> Max size 2MB per file.
+                </p>
                 {#if fileValidationMessage}
                     <p
                         class="my-2 {fileValidationMessage ===
