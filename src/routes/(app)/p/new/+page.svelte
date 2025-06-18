@@ -2,6 +2,7 @@
     import { enhance } from "$app/forms";
     import { page } from "$app/stores";
     import PricingModule from "../../../(marketing)/pricing/PricingModule.svelte";
+    import Dropzone from "svelte-file-dropzone";
 
     let { data, params } = $props();
 
@@ -41,12 +42,12 @@
         }
     }
 
-    function handleFileChange(event) {
-        const newFiles = Array.from(event.target.files);
+    function handleFileDrop(event) {
+        const { acceptedFiles } = event.detail;
         fileValidationMessage = "";
 
         // Add new files to the existing ones, avoiding duplicates by name
-        for (const newFile of newFiles) {
+        for (const newFile of acceptedFiles) {
             const existingIndex = selectedFiles.findIndex(
                 (f) => f.name === newFile.name,
             );
@@ -86,19 +87,22 @@
                 <legend class="text-2xl font-semibold mb-4 text-center"
                     >Upload Your Files</legend
                 >
-                <input
-                    type="file"
-                    id="input"
-                    class="file-input"
-                    multiple
-                    accept=".pptx, .ppt, .mp3, .wav, .mpeg, .aac"
-                    onchange={handleFileChange}
+                <Dropzone
                     name="uploadedFiles"
-                />
-                <label class="label" for="input">
+                    multiple
+                    accept="application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint,audio/mpeg,audio/wav,audio/aac"
+                    on:drop={handleFileDrop}
+                    containerClasses="w-full h-full border-2 border-dashed border-primary rounded-lg flex flex-col items-center justify-center p-6 cursor-pointer"
+                >
+                    <p class="text-center opacity-70">
+                        Drag & drop or click to select your PowerPoint and audio
+                        files
+                    </p>
+                </Dropzone>
+                <p class="label-text text-center mt-2 mb-4">
                     Upload one PowerPoint and one Audio file.<br /> Max size 2MB
                     per file.
-                </label>
+                </p>
                 {#if fileValidationMessage}
                     <p
                         class="my-2 {fileValidationMessage ===
