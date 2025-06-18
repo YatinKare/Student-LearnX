@@ -12,6 +12,7 @@
             <li class="md:mx-2"><a href="/pricing">Pricing</a></li>
             <li class="md:mx-2"><a href="/login">Account</a></li>
             <li class="md:mx-0">
+                <!--
                 <a href="/search" aria-label="Search">
                     <svg
                         fill="#000000"
@@ -24,6 +25,7 @@
                         /></svg
                     >
                 </a>
+                -->
             </li>
         </ul>
         <div class="dropdown dropdown-end sm:hidden">
@@ -50,8 +52,12 @@
                 class="menu menu-lg dropdown-content mt-3 z-1 p-2 shadow-sm bg-base-100 rounded-box w-52 font-bold"
             >
                 <li><a href="/pricing">Pricing</a></li>
+                <!--
                 <li><a href="/account">Account</a></li>
+                -->
+                <!--
                 <li><a href="/search">Search</a></li>
+                -->
             </ul>
         </div>
     </div>

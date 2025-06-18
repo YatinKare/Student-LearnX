@@ -50,9 +50,12 @@
             </nav>
         </div>
         <div>
+            <!-- TODO: ADD `/account` HREF -->
             <a
-                href="/account"
-                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral hover:text-neutral-content text-sm md:text-base"
+                href="/"
+                class="block py-2.5 px-4 rounded transition
+                duration-200 hover:bg-neutral hover:text-neutral-content text-sm
+                md:text-base"
             >
                 My Account
             </a>

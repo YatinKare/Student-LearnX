@@ -45,9 +45,10 @@
                                 Current Plan
                             </div>
                         {:else}
+                            <!-- TODO: ADD `/account/subscribe` HREF -->
                             <a
-                                href={"/account/subscribe/" +
-                                    (plan?.stripe_price_id ?? "free_plan")}
+                                href={"/" +
+                                    /*plan?.stripe_price_id ?? "free_plan"*/ ""}
                                 class="btn btn-primary w-[80%] mx-auto"
                             >
                                 {callToAction}
