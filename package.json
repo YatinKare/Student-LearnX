@@ -24,6 +24,8 @@
 	"dependencies": {
 		"@supabase/auth-ui-shared": "^0.1.8",
 		"@supabase/auth-ui-svelte": "^0.2.9",
-		"svelte-file-dropzone": "^2.0.9"
+		"form-data": "^4.0.3",
+		"svelte-file-dropzone": "^2.0.9",
+		"undici": "^7.10.0"
 	}
 }
