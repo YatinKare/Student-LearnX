@@ -1,6 +1,8 @@
 <script lang="ts">
     import { Auth } from "@supabase/auth-ui-svelte";
     import { sharedAppearance } from "../login_config";
+
+    let { data } = $props();
 </script>
 
 <svelte:head>
@@ -9,11 +11,14 @@
 
 <h1 class="text-2xl font-bold mb-6">Sign Up</h1>
 <Auth
+    redirectTo={`${data.url}/auth/callback`}
     view="sign_up"
-    showLinks={false}
+    supabaseClient={data.supabase}
+    providers={["github"]}
     socialLayout="horizontal"
-    additionalData={undefined}
+    showLinks={false}
     appearance={sharedAppearance}
+    additionalData={undefined}
 />
 <div class="text-l text-slate-800 mt-4 mb-2">
     Have an account? <a class="underline" href="/login/sign_in">Sign in</a>.

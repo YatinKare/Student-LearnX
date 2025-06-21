@@ -1,13 +1,21 @@
-<script lang="ts">
+<script>
     import { Auth } from "@supabase/auth-ui-svelte";
     import { sharedAppearance } from "../login_config";
-    import { onMount } from "svelte";
     import { page } from "$app/state";
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
 
     let { data } = $props();
+    let { supabase } = data;
 
     onMount(() => {
-        console.log("Check if we have cookies");
+        supabase.auth.onAuthStateChange((event) => {
+            if (event === "SIGNED_IN") {
+                setTimeout(() => {
+                    goto("/p/36b7a0b1-7a63-4632-a95d-a179495f6236");
+                }, 1);
+            }
+        });
     });
 </script>
 
@@ -37,6 +45,7 @@
     supabaseClient={data.supabase}
     view="sign_in"
     redirectTo={`${data.url}/auth/callback`}
+    providers={["github"]}
     socialLayout="horizontal"
     showLinks={false}
     appearance={sharedAppearance}
