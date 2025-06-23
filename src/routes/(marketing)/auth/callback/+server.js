@@ -20,5 +20,5 @@ export const GET = async ({ url, locals: { supabase } }) => {
         redirect(303, next)
     }
 
-    redirect(303, "/p/36b7a0b1-7a63-4632-a95d-a179495f6236")
+    redirect(303, "/p/new")
 }

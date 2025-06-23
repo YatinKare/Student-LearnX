@@ -14,7 +14,7 @@
     redirectTo={`${data.url}/auth/callback`}
     view="sign_up"
     supabaseClient={data.supabase}
-    providers={["github"]}
+    providers={["github", "google", "azure"]}
     socialLayout="horizontal"
     showLinks={false}
     appearance={sharedAppearance}

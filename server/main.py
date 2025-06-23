@@ -1,6 +1,9 @@
+from typing import Annotated
+
 from models.users import User
 from db.supabase import create_supabase_client
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
+from fastapi.security import OAuth2PasswordBearer
 from fastapi.middleware.cors import CORSMiddleware
 
 import json
@@ -16,6 +19,10 @@ def guess_mime_type(filename):
 
 app = FastAPI()
 
+# This tells FastAPI to expect a Bearer token in the Authorization header
+# You don't need to implement the /token endpoint unless you want full login
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
 supabase = create_supabase_client()
 
 origins = [
@@ -30,6 +37,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/presentations")
+def presentations(token: Annotated[str, Depends(oauth2_scheme)]):
+    print(token)
+    user = supabase.auth.get_user(token)
+    return {"message": {str(user)}}
 
 
 @app.get("/presentation/{pres_id}")

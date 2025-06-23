@@ -2,6 +2,7 @@
     // Placeholder navigation items, as discussed
     import { mockPresentation } from "$lib/mockData";
     import { page } from "$app/state";
+    import { goto } from "$app/navigation";
     const navItems = [
         {
             id: mockPresentation.id,
@@ -25,8 +26,11 @@
             <div class="">
                 <button
                     class="btn accent-primary-content flex w-full py-2.5 px-4 mb-5 rounded transition duration-200 hover:bg-neutral hover:text-neutral-content text-sm md:text-base text-center items-center justify-center bg-primary"
+                    onclick={() => {
+                        goto("/p/new");
+                    }}
                 >
-                    <a href="/p/new">New Chat</a>
+                    New Chat
                 </button>
             </div>
             <nav class="space-y-2">

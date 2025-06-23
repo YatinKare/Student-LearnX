@@ -35,7 +35,7 @@
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            /></svg
+            />Login With Github</svg
         >
         <span>Email verified! Please sign in.</span>
     </div>
@@ -45,7 +45,7 @@
     supabaseClient={data.supabase}
     view="sign_in"
     redirectTo={`${data.url}/auth/callback`}
-    providers={["github"]}
+    providers={["github", "google", "azure"]}
     socialLayout="horizontal"
     showLinks={false}
     appearance={sharedAppearance}
