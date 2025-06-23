@@ -17,7 +17,9 @@
     providers={["github", "google", "azure"]}
     socialLayout="horizontal"
     showLinks={false}
+    providerScopes={{ azure: "openid,email" }}
     appearance={sharedAppearance}
+    onlyThirdPartyProviders={true}
     additionalData={undefined}
 />
 <div class="text-l text-slate-800 mt-4 mb-2">

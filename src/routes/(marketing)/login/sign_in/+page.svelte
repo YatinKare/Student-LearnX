@@ -49,11 +49,10 @@
     socialLayout="horizontal"
     showLinks={false}
     appearance={sharedAppearance}
+    providerScopes={{ azure: "openid,email" }}
+    onlyThirdPartyProviders={true}
     additionalData={undefined}
 />
-<div class="text-l text-slate-800 mt-4">
-    <a class="underline" href="/login/forgot_password">Forgot password?</a>
-</div>
 <div class="text-l text-slate-800 mt-3">
     Don't have an account? <a class="underline" href="/login/sign_up">Sign up</a
     >.
