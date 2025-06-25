@@ -1,20 +1,16 @@
-from typing import Annotated
+# from typing import Annotated
 
-from models.users import User
-from db.supabase import create_supabase_client
-from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
+from api import users, presentations, uploads
+
+# from models.profile import Profile
+# from db.supabase import create_supabase_client
+from fastapi import FastAPI
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.middleware.cors import CORSMiddleware
 
-import json
-import shutil
-import os
-import mimetypes
-
-
-def guess_mime_type(filename):
-    mime, _ = mimetypes.guess_type(filename)
-    return mime or "application/octet-stream"
+# import json
+# import shutil
+# import os
 
 
 app = FastAPI()
@@ -22,8 +18,6 @@ app = FastAPI()
 # This tells FastAPI to expect a Bearer token in the Authorization header
 # You don't need to implement the /token endpoint unless you want full login
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-supabase = create_supabase_client()
 
 origins = [
     "http://127.0.0.1:5173",
@@ -38,12 +32,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(users.router)
+app.include_router(presentations.router)
+
+"""
+supabase = create_supabase_client()
+
 
 @app.get("/presentations")
-def presentations(token: Annotated[str, Depends(oauth2_scheme)]):
-    print(token)
-    user = supabase.auth.get_user(token)
-    return {"message": {str(user)}}
+def presentations():
+    # token: Annotated[str, Depends(oauth2_scheme)]
+    # print(token)
+    # user = supabase.auth.get_user(token)
+    profile = ((supabase.schema("public").table(
+        "profiles").select("*").execute()).data)[0]
+    print(profile)
+    user = Profile.parse_obj(profile)
+    print(user.presentations)
+    return {"profiles": ""}
 
 
 @app.get("/presentation/{pres_id}")
@@ -53,43 +59,6 @@ def presentation(pres_id):
             return json.load(file)
     else:
         return {"error": "No presentation found"}
-
-
-def user_exists(key: str = "email", value: str = None):
-    user = supabase.from_("users").select("*").eq(key, value).execute()
-    return len(user.data) > 0
-
-
-@app.post("/user")
-def create_user(user: User):
-    try:
-        user_email = user.email.lower()
-
-        if user_exists(value=user_email):
-            return {"message": "User Alread Exists"}
-
-        user = supabase.from_("users")\
-            .insert({"name": user.name, "email": user.email, "password": user.password})\
-            .execute()
-
-        if user:
-            return {"message": "User was created sucessfully!"}
-        else:
-            return {"message": "Error: User was not created sucessfully"}
-    except Exception as e:
-        print("Error: ", e)
-        return {"message": "User Creation Falied"}
-
-
-@app.get("/list_buckets")
-def getAllBuckets():
-    try:
-        buckets = supabase.storage.list_buckets()
-        print(buckets)
-        return {"message": str(buckets)}
-    except Exception as e:
-        print("Error: ", e)
-        return {"message": "getAllBuckets: Retrieval Failed"}
 
 
 @app.post("/upload")
@@ -114,7 +83,8 @@ async def uploadToBucket(
                 path=f"uploads/{ppt_file.filename}",
                 file=file,
                 file_options={"upsert": "true",
-                              "content-type": guess_mime_type(ppt_file.filename)
+                              "content-type":
+                              guess_mime_type(ppt_file.filename)
                               }
             )
 
@@ -124,7 +94,8 @@ async def uploadToBucket(
                 path=f"uploads/{audio_file.filename}",
                 file=file,
                 file_options={
-                    "upsert": "true", "content-type": guess_mime_type(audio_file.filename)}
+                    "upsert": "true", "content-type":
+                    guess_mime_type(audio_file.filename)}
             )
 
         os.remove(ppt_path)
@@ -136,3 +107,4 @@ async def uploadToBucket(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         return {"message": f"uploadToBucket: {e}"}
+"""

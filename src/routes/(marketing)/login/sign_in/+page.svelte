@@ -49,7 +49,7 @@
     socialLayout="horizontal"
     showLinks={false}
     appearance={sharedAppearance}
-    providerScopes={{ azure: "openid,email" }}
+    providerScopes={{ azure: "profile,email" }}
     onlyThirdPartyProviders={true}
     additionalData={undefined}
 />

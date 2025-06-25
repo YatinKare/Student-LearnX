@@ -17,7 +17,7 @@
     providers={["github", "google", "azure"]}
     socialLayout="horizontal"
     showLinks={false}
-    providerScopes={{ azure: "openid,email" }}
+    providerScopes={{ azure: "profile,email" }}
     appearance={sharedAppearance}
     onlyThirdPartyProviders={true}
     additionalData={undefined}
