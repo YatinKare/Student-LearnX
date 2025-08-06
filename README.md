@@ -1,8 +1,9 @@
 # LearnX
 
 >[!WARNING]
-> CURRENTLY IN DEVELOPMENT
-> Not even being tested yet.
+> CURRENTLY IN DEVELOPMENT:
+> Alpha-Stage. <br>
+> <br>Current State: Developing open source PowerPoint to HTML [library](https://github.com/YatinKare/pptx2html_json) for backend service. 
 
 Have you ever wanted a way to study content, but haven't been able to remember what your presentor exactly said? LearnX is a great solution.
 
